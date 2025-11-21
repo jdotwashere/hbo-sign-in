@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unreal Creative - Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #000000;
+            text-align: center;
+            padding-top: 80px;
+        }
+        .card {
+            margin-top: 20px;
+        }
+        button {
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 40px;
+        }
+        button:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Unreal Creative</h1>
+    <p>Official Landing Page</p>
+
+    <div class="card">
+        <h2>Your Public IP Address</h2>
+        <p id="ip">Loading...</p>
+    </div>
+
+    <button onclick="location.href='https://jdotwashere.github.io/kingsgames/'">
+        To Main Page
+    </button>
+
+    <script>
+        fetch("https://api.ipify.org?format=json")
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("ip").textContent = data.ip;
+            })
+            .catch(() => {
+                document.getElementById("ip").textContent = "Could not load IP.";
+            });
+    </script>
+
+</body>
+</html>
