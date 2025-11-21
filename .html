@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body style="font-family: Arial; text-align:center; margin-top:50px;">
+    <h1>Scanning your network…</h1>
+    <p id="ip">Please wait...</p>
+
+    <script>
+    fetch("https://api.ipify.org?format=json")
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById("ip").innerText = "Your IP Address: " + data.ip;
+      })
+      .catch(() => {
+        document.getElementById("ip").innerText = "Could not fetch IP.";
+      });
+    </script>
+</body>
+</html>
